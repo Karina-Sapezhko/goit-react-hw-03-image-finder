@@ -66,7 +66,14 @@ class App extends Component {
   };
 
   render() {
-    const { showModal, loading, gallery, largeImage, error } = this.state;
+    const {
+      showModal,
+      loading,
+      gallery,
+      largeImage,
+      error,
+      query,
+    } = this.state;
 
     return (
       <div className={styles.App}>
@@ -83,7 +90,9 @@ class App extends Component {
         {loading ? (
           <Spinner />
         ) : (
-          gallery.length > 0 && <Button getGallery={this.getGallery} />
+          gallery.length > 0 && (
+            <Button getGallery={this.getGallery} query={query} />
+          )
         )}
 
         {showModal && (
